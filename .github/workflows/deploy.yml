@@ -39,10 +39,17 @@ jobs:
           gcloud config set run/region us-central1
           gcloud config set artifacts/location us-central1
 
-      - name: Build and push Docker image
+      - name: Build Docker image
         run: |
-          gcloud builds submit \
-            --tag us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/spring-docker-repo/products-api
+          docker build -t us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/spring-docker-repo/products-api .
+
+      - name: Authenticate Docker with Artifact Registry
+        run: |
+          gcloud auth configure-docker us-central1-docker.pkg.dev
+
+      - name: Push Docker image
+        run: |
+          docker push us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/spring-docker-repo/products-api
 
       - name: Deploy to Cloud Run
         run: |
