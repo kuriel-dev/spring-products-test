@@ -2,7 +2,7 @@ name: Deploy to Cloud Run
 
 on:
   push:
-    branches: [master]
+    branches: [ master ]
 
 jobs:
   deploy:
@@ -58,4 +58,4 @@ jobs:
             --platform=managed \
             --region=us-central1 \
             --allow-unauthenticated \
-            --set-env-vars="SPRING_PROFILES_ACTIVE=${{ secrets.SPRING_PROFILES_ACTIVE }},DB_URL=${{ secrets.DB_URL }},DB_USER=${{ secrets.DB_USER }},DB_PASS=${{ secrets.DB_PASS }}"
+            --set-env-vars="SPRING_PROFILES_ACTIVE=${{ secrets.SPRING_PROFILES_ACTIVE }},DB_URL=${{ secrets.SPRING_DB_URL }},DB_USER=${{ secrets.SPRING_DB_USERNAME }},DB_PASS=${{ secrets.SPRING_DB_PASSWORD }}"
