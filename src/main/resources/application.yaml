@@ -1,4 +1,8 @@
 spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 3
+      minimum-idle: 1
   profiles:
     active: prod
   jpa:
