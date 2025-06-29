@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public abstract class ProductSerializer {
 //    @JsonIgnore
-//    public abstract Long getId();
+    public abstract Long getId();
 
     @JsonProperty("desc")
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
