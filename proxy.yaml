@@ -1,0 +1,4 @@
+name: products-api
+basepath: /products
+target:
+  url: https://spring-products-api-555570524695.us-central1.run.app/api/products
